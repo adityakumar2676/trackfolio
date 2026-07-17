@@ -1,24 +1,22 @@
-import Sidebar from "../components/Sidebar";
-import Topbar from "../components/Topbar";
-import Overview from "../components/Topbar";
-import { Menu } from "lucide-react";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import Sidebar from "../components/Sidebar";
+import Topbar from "../components/Topbar";
 
 function DashboardLayout() {
-    const [sidebarToggle, setSidebarToggle] = useState(false);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     function toggleSidebar() {
-        setSidebarToggle((prev) => !prev);
+        setIsSidebarOpen((prev) => !prev);
     }
 
     return (
         <div className="dashboard">
-            <Sidebar isOpen={sidebarToggle} />
+            <Sidebar isOpen={isSidebarOpen} />
 
             <div
                 className={`dashboard__main ${
-                    sidebarToggle ? "dashboard__main--shift" : ""
+                    isSidebarOpen ? "dashboard__main--shift" : ""
                 }`}
             >
                 <Topbar toggleSidebar={toggleSidebar} />
