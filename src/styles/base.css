@@ -1,0 +1,38 @@
+/* Reusable Utility Button Class */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px var(--space-2);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-base);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    border: var(--border-width) var(--border-style) transparent;
+}
+
+/* Primary Filled Theme */
+.btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-bg-surface);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn--primary:hover {
+    background-color: var(--color-primary-hover);
+    box-shadow: var(--shadow-md);
+}
+
+/* Secondary Outlined/Muted Theme */
+.btn--secondary {
+    background-color: var(--color-bg-surface);
+    color: var(--color-text-primary);
+    border-color: var(--color-border-input);
+}
+
+.btn--secondary:hover {
+    background-color: var(--color-bg-muted);
+    border-color: var(--color-border);
+}

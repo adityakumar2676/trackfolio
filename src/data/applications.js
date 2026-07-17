@@ -1,0 +1,58 @@
+const applications = [
+    {
+        id: 1,
+        company: "PixelCraft Studio",
+        position: "Frontend Developer",
+        location: "Remote",
+        type: "Full-time",
+        status: "Applied",
+        appliedDate: "2026-07-15",
+    },
+    {
+        id: 2,
+        company: "Nexora Labs",
+        position: "React Developer Intern",
+        location: "Noida, India",
+        type: "Internship",
+        status: "Interview",
+        appliedDate: "2026-07-13",
+    },
+    {
+        id: 3,
+        company: "WebForge Agency",
+        position: "Junior Frontend Developer",
+        location: "Delhi, India",
+        type: "Full-time",
+        status: "Shortlisted",
+        appliedDate: "2026-07-11",
+    },
+    {
+        id: 4,
+        company: "DevSphere",
+        position: "Frontend Developer",
+        location: "Remote",
+        type: "Contract",
+        status: "Rejected",
+        appliedDate: "2026-07-08",
+    },
+    {
+        id: 5,
+        company: "Orbit Technologies",
+        position: "Web Developer Intern",
+        location: "Gurugram, India",
+        type: "Internship",
+        status: "Applied",
+        appliedDate: "2026-07-06",
+    },
+    {
+        id: 6,
+        company: "LaunchGrid",
+        position: "React.js Developer",
+        location: "Remote",
+        type: "Full-time",
+        status: "Offer",
+        appliedDate: "2026-07-02",
+    },
+];
+
+export default applications;

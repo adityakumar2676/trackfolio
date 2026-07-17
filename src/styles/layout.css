@@ -1,0 +1,63 @@
+/* Main Dashboard Wrapper */
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--color-bg-page);
+    font-family: var(--font-family-base);
+    overflow-x: hidden;
+}
+
+/* Main Content Area Wrapper */
+
+.dashboard__main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+
+    margin-left: 0;
+
+    transition: margin-left var(--transition-base);
+}
+
+/* When Sidebar is Open */
+
+.dashboard__main--shift {
+    margin-left: var(--sidebar-width);
+}
+
+/* Navigation Header */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--topbar-height);
+    background-color: rgba(250, 250, 250, 0.8); /* Semi-transparent bg-page */
+    backdrop-filter: blur(8px);
+    border-bottom: var(--border-width) var(--border-style) var(--color-border);
+    z-index: var(--z-topbar);
+    font-family: var(--font-family-base);
+    display: flex;
+    align-items: center;
+}
+
+/* Layout Container */
+.navbar__container {
+    max-width: var(--container-max-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Actions Wrapper */
+.navbar__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}

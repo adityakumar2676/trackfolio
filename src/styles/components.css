@@ -1,0 +1,427 @@
+.logo__wrapper {
+    display: inline-flex;
+    align-items: center;
+    /* Uses your 8px spacing token */
+    gap: var(--space-1);
+    /* Safe padding for inline elements */
+    padding: 4px var(--space-1);
+    user-select: none;
+}
+
+.logo__icon {
+    /* Dynamic size that matches the text perfectly */
+    width: var(--font-size-2xl);
+    height: var(--font-size-2xl);
+    /* Uses your primary brand color */
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.logo__title {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--color-text-primary);
+    /* Subtle letter spacing to give the logo a clean, premium look */
+    letter-spacing: -0.02em;
+}
+
+/* Header Container */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--topbar-height);
+    padding: 0 var(--space-3);
+    background-color: var(--color-bg-surface);
+    border-bottom: var(--border-width) var(--border-style) var(--color-border);
+    font-family: var(--font-family-base);
+    z-index: var(--z-topbar);
+}
+
+/* Mobile Sidebar Toggle Button */
+.topbar__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    font-size: var(--font-size-2xl);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    padding: var(--space-1);
+    margin-right: var(--space-1);
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition-fast);
+}
+
+.topbar__toggle:hover {
+    background-color: var(--color-bg-muted);
+}
+
+/* Page Title */
+.topbar__title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* Actions wrapper (Search + Profile) */
+.topbar__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+/* Search Container */
+.search {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Search Input Field */
+.search__bar {
+    width: var(--searchbar-width);
+    /* Left padding is larger (40px) to prevent text overlapping the search icon */
+    padding: 10px var(--space-2) 10px 40px;
+    font-size: var(--font-size-sm);
+    font-family: var(--font-family-base);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-surface);
+    border: var(--border-width) var(--border-style) var(--color-border-input);
+    border-radius: var(--radius-base);
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+    outline: none;
+}
+
+.search__bar::placeholder {
+    color: var(--color-text-tertiary);
+}
+
+.search__bar:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-soft-shadow);
+}
+
+/* Search Icon Overlay */
+.search__icon {
+    position: absolute;
+    left: 14px;
+    width: 18px;
+    height: 18px;
+    color: var(--color-text-secondary);
+    pointer-events: none; /* Allows click-through straight to the input box */
+}
+
+/* Profile Dropdown Trigger */
+.profile {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: var(--radius-full);
+    color: var(--color-text-secondary);
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.profile:hover {
+    background-color: var(--color-bg-muted);
+    color: var(--color-text-primary);
+}
+
+/* Circular Avatar using initials */
+.profile__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    /* Contrast styling using primary-light background and primary text color */
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.05em;
+}
+
+/* Sidebar Container Base */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: var(--sidebar-width);
+    background-color: var(--color-sidebar-bg);
+    padding: var(--space-2) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    z-index: var(--z-sidebar);
+    transition:
+        transform var(--transition-base),
+        visibility var(--transition-base);
+    box-shadow: var(--shadow-md);
+    font-family: var(--font-family-base);
+}
+
+/* Toggle States (Useful for responsive/mobile styling) */
+.sidebar--open {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.sidebar--closed {
+    /* On mobile, shifts out of view; override with media queries if needed for desktop sticky layouts */
+    transform: translateX(-100%);
+    visibility: hidden;
+}
+
+/* Logo Section Wrapper */
+.sidebar .logo__wrapper {
+    padding: 0 var(--space-2);
+    display: flex;
+    align-items: center;
+    height: calc(var(--topbar-height) - var(--space-2));
+}
+
+/* Navigation Links Container */
+.sidebar__nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: 0 var(--space-2);
+}
+
+/* Individual Nav Item Links */
+.sidebar__content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-2);
+    color: var(--color-sidebar-text-muted);
+    text-decoration: none;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--radius-base);
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast);
+}
+
+/* Hover State */
+.sidebar__content:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--color-bg-surface);
+}
+
+/* Active Page State */
+.sidebar__content.active {
+    background-color: var(--color-primary);
+    color: var(--color-bg-surface);
+    box-shadow: var(--shadow-primary);
+}
+
+/* Icon Wrapper centering */
+.content__icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Adjusting icon color natively on hover/active states */
+.sidebar__content .content__icon-wrapper svg {
+    stroke: currentColor;
+}
+
+/* Text label within link */
+.content__title {
+    line-height: var(--line-height-normal);
+}
+
+/* Card Container */
+.stat__card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    background-color: var(--color-bg-surface);
+    border: var(--border-width) var(--border-style) var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2);
+    box-shadow: var(--shadow-sm);
+    font-family: var(--font-family-base);
+    transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+/* Elevate slightly on hover for an interactive dashboard feel */
+.stat__card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Icon Wrapper Circle */
+.stat__icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-primary-light);
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+}
+
+/* Icon Color styling */
+.stat__icon {
+    color: var(--color-primary);
+}
+
+/* Content Layout (Title, Value, Change) */
+.stat__content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Card Label (e.g., "Active Candidates") */
+.stat__title {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* The Main Metric Value (e.g., "12,450") */
+.stat__value {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    line-height: var(--line-height-tight);
+}
+
+/* The Trend Change indicator (e.g., "+12.5% this month") */
+.stat__change {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-tertiary);
+    margin-top: 2px;
+}
+
+/* Container with overflow handling for responsive/mobile screens */
+.applications__table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    background-color: var(--color-bg-surface);
+    border: var(--border-width) var(--border-style) var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    margin-top: var(--space-3);
+    font-family: var(--font-family-base);
+}
+
+/* Core Table Element */
+.applications__table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: var(--font-size-base);
+}
+
+/* Header Styling */
+.applications__table-head {
+    background-color: var(--color-bg-muted);
+    border-bottom: var(--border-width) var(--border-style) var(--color-border);
+}
+
+.applications__table-head th {
+    padding: var(--space-2);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-label);
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.02em;
+}
+
+/* Body Styling */
+.applications__table-body tr {
+    border-bottom: var(--border-width) var(--border-style) var(--color-border);
+    transition: background-color var(--transition-fast);
+}
+
+/* Subtle hover effect on rows */
+.applications__table-body tr:hover {
+    background-color: var(--color-bg-page);
+}
+
+.applications__table-body tr:last-child {
+    border-bottom: none;
+}
+
+.applications__table-body td {
+    padding: var(--space-2);
+    color: var(--color-text-primary);
+    line-height: var(--line-height-normal);
+}
+
+/* Style specific table column data for better hierarchy */
+.applications__table-body td:first-child {
+    font-weight: var(--font-weight-semibold);
+}
+
+.applications__table-body td:nth-child(2) {
+    color: var(--color-text-primary);
+}
+
+.applications__table-body td:nth-child(3),
+.applications__table-body td:nth-child(4),
+.applications__table-body td:nth-child(6) {
+    color: var(--color-text-secondary);
+}
+
+/* --- Status Badge Styling --- */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px var(--space-1);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--radius-full);
+    text-transform: capitalize;
+}
+
+/* Status variants utilizing system state colors */
+.status-badge--success {
+    background-color: var(--color-success-bg);
+    color: var(--color-success);
+}
+
+.status-badge--pending {
+    background-color: var(--color-pending-bg);
+    color: var(--color-pending);
+}
+
+.status-badge--rejected {
+    background-color: var(--color-rejected-bg);
+    color: var(--color-rejected);
+}
+
+.status-badge--interview {
+    background-color: var(--color-interview-bg);
+    color: var(--color-interview);
+}
