@@ -1,7 +1,7 @@
-import stats from "../data/stats";
-import applications from "../data/applications";
 import StatCard from "../components/StatCard";
 import ApplicationsTable from "../components/ApplicationTable";
+import applications from "../data/applications";
+import stats from "../data/stats";
 
 function Overview() {
     return (
@@ -12,9 +12,7 @@ function Overview() {
                 ))}
             </div>
 
-            <div className="applications__table-wrapper">
-                <ApplicationsTable applications={applications} />
-            </div>
+            <ApplicationsTable applications={applications} />
         </section>
     );
 }
