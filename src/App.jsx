@@ -1,10 +1,9 @@
-import { Routes, Route } from "react-router-dom";
-
+import { Route, Routes } from "react-router-dom";
+import ProtectedRoute from "./components/ProtectedRoute";
+import DashboardLayout from "./layout/DashboardLayout";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import DashboardLayout from "./layout/DashboardLayout";
 import Overview from "./pages/Overview";
-import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
     return (
