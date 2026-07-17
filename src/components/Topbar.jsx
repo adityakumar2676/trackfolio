@@ -1,28 +1,34 @@
-import { Search, ChevronDown } from "lucide-react";
+import { ChevronDown, Menu, Search } from "lucide-react";
 
 function Topbar({ toggleSidebar }) {
     return (
         <header className="topbar">
-            <button className="topbar__toggle" onClick={toggleSidebar}>
-                ☰
+            <button
+                type="button"
+                className="topbar__toggle"
+                onClick={toggleSidebar}
+                aria-label="Toggle sidebar"
+            >
+                <Menu aria-hidden="true" />
             </button>
 
             <h1 className="topbar__title">Overview</h1>
 
             <div className="topbar__actions">
                 <div className="search">
+                    <Search className="search__icon" aria-hidden="true" />
                     <input
-                        className="search__bar"
-                        placeholder="Search"
                         id="search"
                         type="search"
+                        className="search__bar"
+                        placeholder="Search"
+                        aria-label="Search"
                     />
-                    <Search className="search__icon" />
                 </div>
 
-                <button className="profile">
-                    <div className="profile__avatar">AK</div>
-                    <ChevronDown />
+                <button type="button" className="profile">
+                    <span className="profile__avatar">AK</span>
+                    <ChevronDown aria-hidden="true" />
                 </button>
             </div>
         </header>

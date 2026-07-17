@@ -1,7 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Logo from "./Logo";
 import sidebarData from "../data/sidebarData";
-import { useNavigate } from "react-router-dom";
 
 function Sidebar({ isOpen }) {
     const navigate = useNavigate();
@@ -17,33 +16,30 @@ function Sidebar({ isOpen }) {
                 isOpen ? "sidebar--open" : "sidebar--closed"
             }`}
         >
-            <div className="logo__wrapper">
-                <Logo />
-            </div>
+            <Logo />
 
-            <nav className="sidebar__nav">
-                {sidebarData.map((data) => {
-                    const Icon = data.icon;
+            <nav className="sidebar__nav" aria-label="Dashboard navigation">
+                {sidebarData.map(({ id, path, icon: Icon, title }) => (
+                    <NavLink
+                        key={id}
+                        to={path}
+                        className={({ isActive }) =>
+                            `sidebar__content${isActive ? " active" : ""}`
+                        }
+                    >
+                        <span className="content__icon-wrapper">
+                            <Icon size={20} aria-hidden="true" />
+                        </span>
 
-                    return (
-                        <NavLink
-                            key={data.id}
-                            to={data.path}
-                            className={({ isActive }) =>
-                                isActive
-                                    ? "sidebar__content active"
-                                    : "sidebar__content"
-                            }
-                        >
-                            <div className="content__icon-wrapper">
-                                <Icon size={20} />
-                            </div>
+                        <span className="content__title">{title}</span>
+                    </NavLink>
+                ))}
 
-                            <span className="content__title">{data.title}</span>
-                        </NavLink>
-                    );
-                })}
-                <button onClick={handleLogout} className="your-logout-class">
+                <button
+                    type="button"
+                    className="sidebar__logout"
+                    onClick={handleLogout}
+                >
                     Logout
                 </button>
             </nav>

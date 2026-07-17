@@ -1,5 +1,5 @@
-import Logo from "../components/Logo";
 import { Link } from "react-router-dom";
+import Logo from "../components/Logo";
 
 function Navbar() {
     return (
@@ -8,11 +8,11 @@ function Navbar() {
                 <Logo />
 
                 <div className="navbar__actions">
-                    <Link className="btn btn--primary" to="/login">
+                    <Link to="/login" className="btn btn--primary">
                         Login
                     </Link>
 
-                    <Link className="btn btn--secondary" to="/login">
+                    <Link to="/login" className="btn btn--secondary">
                         Sign Up
                     </Link>
                 </div>

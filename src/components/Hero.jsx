@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 function Hero() {
     return (
         <section className="hero" id="hero">
-            <div className="hero__background">
-                <img src="#" alt="hero-bg" className="hero__background-img" />
-            </div>
             <div className="hero__container">
                 <div className="hero__content">
                     <span className="hero__badge">

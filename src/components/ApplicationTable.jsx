@@ -15,8 +15,10 @@ function ApplicationsTable({ applications }) {
 
                 <tbody className="applications__table-body">
                     {applications.map((application) => {
-                        const statusClass =
-                            application.status?.toLowerCase() || "pending";
+                        const status = application.status || "Pending";
+                        const statusClass = status
+                            .toLowerCase()
+                            .replace(/\s+/g, "-");
 
                         return (
                             <tr key={application.id}>
@@ -28,7 +30,7 @@ function ApplicationsTable({ applications }) {
                                     <span
                                         className={`status-badge status-badge--${statusClass}`}
                                     >
-                                        {application.status}
+                                        {status}
                                     </span>
                                 </td>
                                 <td>{application.appliedDate}</td>
