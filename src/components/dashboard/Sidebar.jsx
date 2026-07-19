@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import Logo from "./Logo";
-import sidebarData from "../data/sidebarData";
+import Logo from "../common/Logo";
+import sidebarData from "../../data/sidebarData";
 
 function Sidebar({ isOpen }) {
     const navigate = useNavigate();

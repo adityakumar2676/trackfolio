@@ -1,5 +1,5 @@
-import StatCard from "../components/StatCard";
-import ApplicationsTable from "../components/ApplicationTable";
+import StatCard from "../components/cards/StatCard";
+import ApplicationsTable from "../components/dashboard/ApplicationTable";
 import applications from "../data/applications";
 import stats from "../data/stats";
 
