@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 function ApplicationsTable({ applications }) {
+    const navigate = useNavigate();
+
     return (
         <div className="applications__table-wrapper">
             <table className="applications__table">
@@ -21,7 +25,14 @@ function ApplicationsTable({ applications }) {
                             .replace(/\s+/g, "-");
 
                         return (
-                            <tr key={application.id}>
+                            <tr
+                                key={application.id}
+                                onClick={() =>
+                                    navigate(
+                                        `/dashboard/applications/${application.id}`,
+                                    )
+                                }
+                            >
                                 <td>{application.company}</td>
                                 <td>{application.position}</td>
                                 <td>{application.location}</td>

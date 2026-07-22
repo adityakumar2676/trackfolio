@@ -1,9 +1,12 @@
+import { useState } from "react";
 import StatCard from "../components/cards/StatCard";
 import ApplicationsTable from "../components/dashboard/ApplicationTable";
-import applications from "../data/applications";
+import initialApplications from "../data/applications";
 import stats from "../data/stats";
 
 function Overview() {
+    const [applications, setApplications] = useState(initialApplications);
+
     return (
         <section className="overview">
             <div className="stat__card-wrapper">

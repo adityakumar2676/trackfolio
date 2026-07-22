@@ -1,6 +1,8 @@
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { login } from "../auth/authService";
+import Logo from "../components/common/Logo";
 
 function Login() {
     const [showPassword, setShowPassword] = useState(false);
@@ -13,15 +15,16 @@ function Login() {
     function handleSubmit(e) {
         e.preventDefault();
 
-        const isValidLogin =
-            email === "admin@trackfolio.com" && password === "123456";
+        const result = login({
+            email,
+            password,
+        });
 
-        if (!isValidLogin) {
-            setError("Invalid email or password");
+        if (!result.success) {
+            setError(result.message);
             return;
         }
 
-        localStorage.setItem("isAuthenticated", "true");
         navigate("/dashboard");
     }
 
@@ -29,20 +32,22 @@ function Login() {
         <main className="login">
             <article className="login__card">
                 <header className="login__header">
+                    <Logo />
                     <h1 className="login__title">Welcome Back</h1>
                     <p className="login__description">
                         Log in to continue tracking your applications.
                     </p>
                 </header>
 
-                <form className="login__form" onSubmit={handleSubmit}>
-                    <div className="login__input-wrapper">
-                        <label htmlFor="email" className="login__form-title">
+                <form className="form" onSubmit={handleSubmit}>
+                    <div className="form__group">
+                        <label htmlFor="email" className="form__label">
                             Email
                         </label>
+
                         <input
                             id="email"
-                            className="login__form-input"
+                            className="form__input"
                             type="email"
                             placeholder="you@example.com"
                             name="email"
@@ -56,15 +61,15 @@ function Login() {
                         />
                     </div>
 
-                    <div className="login__input-wrapper">
-                        <label htmlFor="password" className="login__form-title">
+                    <div className="form__group">
+                        <label htmlFor="password" className="form__label">
                             Password
                         </label>
 
                         <div className="login__password-wrapper">
                             <input
                                 id="password"
-                                className="login__form-input"
+                                className="form__input"
                                 type={showPassword ? "text" : "password"}
                                 placeholder="••••••••"
                                 name="password"
@@ -105,7 +110,7 @@ function Login() {
                     </div>
 
                     {error && (
-                        <p className="login__error" role="alert">
+                        <p className="form__error" role="alert">
                             {error}
                         </p>
                     )}

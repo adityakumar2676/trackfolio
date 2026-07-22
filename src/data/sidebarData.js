@@ -19,7 +19,7 @@ const sidebarData = [
     {
         id: 2,
         title: "Applications",
-        path: "/applications",
+        path: "/dashboard/applications",
         icon: BriefcaseBusiness,
     },
     {

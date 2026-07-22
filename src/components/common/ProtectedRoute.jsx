@@ -1,9 +1,10 @@
 import { Navigate } from "react-router-dom";
+import { getCurrentUser } from "../../auth/authService";
 
 function ProtectedRoute({ children }) {
-    const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
+    const currentUser = getCurrentUser();
 
-    return isAuthenticated ? children : <Navigate to="/login" replace />;
+    return currentUser ? children : <Navigate to="/login" replace />;
 }
 
 export default ProtectedRoute;

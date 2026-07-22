@@ -2,15 +2,15 @@ function StatCard({ stat }) {
     const { icon: Icon, title, value, change } = stat;
 
     return (
-        <article className="stat__card">
-            <div className="stat__icon-wrapper">
-                <Icon className="stat__icon" size={24} aria-hidden="true" />
+        <article className="card">
+            <div className="card__icon-wrapper">
+                <Icon className="card__icon" size={24} aria-hidden="true" />
             </div>
 
-            <div className="stat__content">
-                <h3 className="stat__title">{title}</h3>
-                <span className="stat__value">{value}</span>
-                <span className="stat__change">{change}</span>
+            <div className="card__content">
+                <h3 className="card__title">{title}</h3>
+                <span className="card__value">{value}</span>
+                <span className="card__change">{change}</span>
             </div>
         </article>
     );

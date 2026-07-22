@@ -3,13 +3,17 @@ import ProtectedRoute from "./components/common/ProtectedRoute";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import Overview from "./pages/Overview";
+import Applications from "./pages/Applications";
+import ApplicationDetails from "./pages/ApplicationDetails";
 
 function App() {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
 
             <Route
                 path="/dashboard"
@@ -20,6 +24,13 @@ function App() {
                 }
             >
                 <Route index element={<Overview />} />
+
+                <Route path="applications" element={<Applications />} />
+
+                <Route
+                    path="applications/:id"
+                    element={<ApplicationDetails />}
+                />
             </Route>
         </Routes>
     );
