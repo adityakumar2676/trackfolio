@@ -11,12 +11,8 @@ const initialFormData = {
     notes: "",
 };
 
-function ApplicationForm({
-    initialValues = initialFormData,
-    onSubmit,
-    onClose,
-}) {
-    const [formData, setFormData] = useState(initialValues);
+function ApplicationForm({ initialData = initialFormData, onSubmit, onClose }) {
+    const [formData, setFormData] = useState(initialData);
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -35,10 +31,14 @@ function ApplicationForm({
     return (
         <article className="application">
             <header className="application__header">
-                <h2 className="application__title">Add Application</h2>
+                <h2 className="application__title">
+                    {initialData.id ? "Edit Application" : "Add Application"}
+                </h2>
 
                 <p className="application__description">
-                    Enter the details of your job application.
+                    {initialData.id
+                        ? "Update your job application details."
+                        : "Enter the details of your job application."}
                 </p>
             </header>
 
@@ -168,7 +168,9 @@ function ApplicationForm({
                     </button>
 
                     <button type="submit" className="btn btn--primary">
-                        Save Application
+                        {initialData.id
+                            ? "Update Application"
+                            : "Save Application"}
                     </button>
                 </div>
             </form>

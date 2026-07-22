@@ -44,6 +44,7 @@ const register = ({ name, email, password }) => {
         name,
         email,
         password,
+        applications: [],
         createdAt: new Date().toISOString(),
     };
 

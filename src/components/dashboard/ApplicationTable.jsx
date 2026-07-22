@@ -11,7 +11,6 @@ function ApplicationsTable({ applications }) {
                         <th>Company</th>
                         <th>Position</th>
                         <th>Location</th>
-                        <th>Type</th>
                         <th>Status</th>
                         <th>Applied Date</th>
                     </tr>
@@ -36,7 +35,6 @@ function ApplicationsTable({ applications }) {
                                 <td>{application.company}</td>
                                 <td>{application.position}</td>
                                 <td>{application.location}</td>
-                                <td>{application.type}</td>
                                 <td>
                                     <span
                                         className={`status-badge status-badge--${statusClass}`}

@@ -11,31 +11,30 @@ const stats = [
     {
         id: 1,
         title: "Applications",
-        value: 42,
-        change: "+6 this week",
+        value: applications.length,
+        change: "",
         icon: BriefcaseBusiness,
     },
     {
         id: 2,
         title: "Interviews",
-        value: 8,
-        change: "+2 this week",
+        value: applications.filter((app) => app.status === "Interview").length,
+        change: "",
         icon: CalendarCheck,
     },
     {
         id: 3,
         title: "Offers",
-        value: 2,
-        change: "+1 this month",
+        value: applications.filter((app) => app.status === "Offer").length,
+        change: "",
         icon: Trophy,
     },
     {
         id: 4,
         title: "Rejected",
-        value: 13,
-        change: "+3 this month",
+        value: applications.filter((app) => app.status === "Rejected").length,
+        change: "",
         icon: CircleX,
     },
 ];
-
 export default stats;

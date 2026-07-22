@@ -2,7 +2,10 @@ import AddApplicationButton from "../components/dashboard/AddApplicationButton";
 import ApplicationsTable from "../components/dashboard/ApplicationTable";
 import ApplicationModal from "../components/dashboard/ApplicationModal";
 import ApplicationForm from "../components/dashboard/ApplicationForm";
-import initialApplications from "../data/applications";
+import {
+    getApplications,
+    addApplication,
+} from "../services/applicationService";
 import { Search } from "lucide-react";
 import { ChevronLeft } from "lucide-react";
 import { ChevronRight } from "lucide-react";
@@ -10,7 +13,22 @@ import { useState } from "react";
 
 function Applications() {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [applications, setApplications] = useState(initialApplications);
+    const [applications, setApplications] = useState(getApplications());
+    const [searchQuery, setSearchQuery] = useState("");
+    const [selectedStatus, setSelectedStatus] = useState("All");
+
+    const filteredApplications = applications.filter((application) => {
+        const query = searchQuery.toLowerCase();
+
+        const matchesSearch =
+            application.company.toLowerCase().includes(query) ||
+            application.position.toLowerCase().includes(query);
+
+        const matchesStatus =
+            selectedStatus === "All" || application.status === selectedStatus;
+
+        return matchesSearch && matchesStatus;
+    });
 
     function handleOpenModal() {
         setIsModalOpen(true);
@@ -21,7 +39,13 @@ function Applications() {
     }
 
     function handleAddApplication(formData) {
-        console.log(formData);
+        addApplication(formData);
+
+        const updatedApplications = getApplications();
+
+        setApplications(updatedApplications);
+
+        handleCloseModal();
     }
 
     return (
@@ -36,22 +60,69 @@ function Applications() {
                     <Search className="search__icon" aria-hidden="true" />
                     <input
                         id="search"
-                        type="search"
+                        type="text"
                         className="search__bar"
-                        placeholder="Search"
+                        placeholder="Search applications..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
                         aria-label="Search"
                     />
                 </div>
 
                 <div className="applications__filters">
-                    <button className="btn btn--tertiary">All</button>
-                    <button className="btn btn--tertiary">Applied</button>
-                    <button className="btn btn--tertiary">Interview</button>
-                    <button className="btn btn--tertiary">Shortlisted</button>
-                    <button className="btn btn--tertiary">Rejected</button>
+                    <button
+                        className={`btn ${
+                            selectedStatus === "Applied"
+                                ? "btn--primary"
+                                : "btn--tertiary"
+                        }`}
+                        onClick={() => setSelectedStatus("All")}
+                    >
+                        All
+                    </button>
+                    <button
+                        className={`btn ${
+                            selectedStatus === "Applied"
+                                ? "btn--primary"
+                                : "btn--tertiary"
+                        }`}
+                        onClick={() => setSelectedStatus("Applied")}
+                    >
+                        Applied
+                    </button>
+                    <button
+                        className={`btn ${
+                            selectedStatus === "Applied"
+                                ? "btn--primary"
+                                : "btn--tertiary"
+                        }`}
+                        onClick={() => setSelectedStatus("Interview")}
+                    >
+                        Interview
+                    </button>
+                    <button
+                        className={`btn ${
+                            selectedStatus === "Applied"
+                                ? "btn--primary"
+                                : "btn--tertiary"
+                        }`}
+                        onClick={() => setSelectedStatus("Offer")}
+                    >
+                        Offer
+                    </button>
+                    <button
+                        className={`btn ${
+                            selectedStatus === "Applied"
+                                ? "btn--primary"
+                                : "btn--tertiary"
+                        }`}
+                        onClick={() => setSelectedStatus("Rejected")}
+                    >
+                        Rejected
+                    </button>
                 </div>
 
-                <ApplicationsTable applications={applications} />
+                <ApplicationsTable applications={filteredApplications} />
 
                 <div className="applications__footer">
                     <p>Showing 1-7 of 24 applications</p>

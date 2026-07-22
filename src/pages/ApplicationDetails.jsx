@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     MapPin,
     DollarSign,
@@ -7,20 +7,61 @@ import {
     Trash2,
     Pencil,
 } from "lucide-react";
-import { useParams } from "react-router-dom";
-import applications from "../data/applications";
+import { useParams, useNavigate } from "react-router-dom";
+import {
+    getApplications,
+    updateApplication,
+    deleteApplication,
+} from "../services/applicationService";
+import ApplicationModal from "../components/dashboard/ApplicationModal";
+import ApplicationForm from "../components/dashboard/ApplicationForm";
 
 function ApplicationDetails() {
     const { id } = useParams();
 
-    const application = applications.find((app) => app.id === Number(id));
+    const [application, setApplication] = useState(() =>
+        getApplications().find((app) => app.id === id),
+    );
+
+    const navigate = useNavigate();
+
+    if (!application) {
+        return <p>Application not found.</p>;
+    }
+
+    const [isEditing, setIsEditing] = useState(false);
+
+    function handleUpdateApplication(updatedData) {
+        const updatedApplication = updateApplication(
+            application.id,
+            updatedData,
+        );
+
+        setApplication(updatedApplication);
+
+        setIsEditing(false);
+    }
+
+    function handleDelete() {
+        const confirmed = window.confirm(
+            "Are you sure you want to delete this application?",
+        );
+
+        if (!confirmed) return;
+
+        deleteApplication(application.id);
+
+        navigate("/dashboard/applications");
+    }
 
     return (
         <div className="applications__details">
             <div className="applications__details-container">
                 <div className="applications__details-card">
                     <div className="applications__details-company">
-                        <div className="applications__details-logo">S</div>
+                        <div className="applications__details-logo">
+                            {application.company.charAt(0).toUpperCase()}
+                        </div>
                         <div className="applications__details-meta">
                             <h2 className="applications__details-title">
                                 {application.company}
@@ -50,7 +91,7 @@ function ApplicationDetails() {
                                     LOCATION
                                 </span>
                                 <span className="applications__details-value">
-                                    San Francisco, CA (Remote)
+                                    {application.location}
                                 </span>
                             </div>
                         </div>
@@ -64,7 +105,7 @@ function ApplicationDetails() {
                                     SALARY
                                 </span>
                                 <span className="applications__details-value">
-                                    $140,000 – $170,000
+                                    {application.salary || "Not specified"}
                                 </span>
                             </div>
                         </div>
@@ -77,14 +118,20 @@ function ApplicationDetails() {
                                 <span className="applications__details-label">
                                     JOB LINK
                                 </span>
-                                <a
-                                    href="https://stripe.com/careers/frontend-eng"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="applications__details-link"
-                                >
-                                    stripe.com/careers/frontend-eng
-                                </a>
+                                {application.jobUrl ? (
+                                    <a
+                                        href={application.jobUrl}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="applications__details-link"
+                                    >
+                                        {application.jobUrl}
+                                    </a>
+                                ) : (
+                                    <span className="applications__details-value">
+                                        Not specified
+                                    </span>
+                                )}
                             </div>
                         </div>
 
@@ -97,7 +144,7 @@ function ApplicationDetails() {
                                     DATE APPLIED
                                 </span>
                                 <span className="applications__details-value">
-                                    July 8, 2026
+                                    {application.appliedDate}
                                 </span>
                             </div>
                         </div>
@@ -112,10 +159,7 @@ function ApplicationDetails() {
                         readOnly
                         rows={5}
                         className="applications__details-notes-input"
-                        defaultValue={`Phone screen went well — spoke with Sarah from recruiting.
-Technical interview scheduled for next Thursday.
-Focus areas mentioned: React performance, state management.
-Prepare examples from recent projects.`}
+                        defaultValue={application.notes}
                     />
                 </div>
 
@@ -123,6 +167,7 @@ Prepare examples from recent projects.`}
                     <button
                         type="button"
                         className="applications__details-btn applications__details-btn--delete"
+                        onClick={handleDelete}
                     >
                         <Trash2 />
                         <span>Delete</span>
@@ -131,11 +176,27 @@ Prepare examples from recent projects.`}
                     <button
                         type="button"
                         className="applications__details-btn applications__details-btn--edit"
+                        onClick={() => {
+                            setIsEditing(true);
+                        }}
                     >
                         <Pencil />
                         <span>Edit</span>
                     </button>
                 </div>
+
+                {isEditing && (
+                    <ApplicationModal
+                        isOpen={isEditing}
+                        onClose={() => setIsEditing(false)}
+                    >
+                        <ApplicationForm
+                            initialData={application}
+                            onSubmit={handleUpdateApplication}
+                            onClose={() => setIsEditing(false)}
+                        />
+                    </ApplicationModal>
+                )}
             </div>
         </div>
     );
