@@ -21,7 +21,7 @@ function DashboardLayout() {
             >
                 <Topbar toggleSidebar={toggleSidebar} />
 
-                <main className="dashboard__content">
+                <main className="dashboard__page">
                     <Outlet />
                 </main>
             </div>

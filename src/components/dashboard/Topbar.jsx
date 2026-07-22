@@ -32,14 +32,14 @@ function Topbar({ toggleSidebar }) {
                     <input
                         id="search"
                         type="search"
-                        className="search__bar"
+                        className="search__input"
                         placeholder="Search"
                         aria-label="Search"
                     />
                 </div>
 
-                <button type="button" className="profile">
-                    <span className="profile__avatar">AK</span>
+                <button type="button" className="profile-menu">
+                    <span className="profile-menu__avatar">AK</span>
                     <ChevronDown aria-hidden="true" />
                 </button>
             </div>

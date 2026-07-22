@@ -4,7 +4,7 @@ function FeatureCard({ feature }) {
     return (
         <article className="card">
             <div className="card__icon-wrapper">
-                <Icon className="icon" size={24} />
+                <Icon className="card__icon" size={24} />
             </div>
 
             <div className="card__content">

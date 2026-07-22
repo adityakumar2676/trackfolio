@@ -13,7 +13,7 @@ function Footer() {
                 </div>
 
                 <div className="footer__actions">
-                    <a href="#" className="github">
+                    <a href="#" className="footer__link">
                         Github
                     </a>
                 </div>

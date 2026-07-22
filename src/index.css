@@ -1,5 +1,11 @@
-@import url(./styles/pages.css);
-@import url(./styles/variables.css);
-@import url(./styles/components.css);
+@import url(./styles/components/cards.css);
+@import url(./styles/components/common.css);
+@import url(./styles/components/dashboard.css);
+@import url(./styles/components/sections.css);
+@import url(./styles/globals/base.css);
+@import url(./styles/globals/buttons.css);
+@import url(./styles/globals/forms.css);
+@import url(./styles/globals/reset.css);
+@import url(./styles/globals/variables.css);
 @import url(./styles/layout.css);
-@import url(./styles/base.css);
+@import url(./styles/pages.css);

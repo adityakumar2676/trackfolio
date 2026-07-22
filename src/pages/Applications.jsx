@@ -1,5 +1,5 @@
 import AddApplicationButton from "../components/dashboard/AddApplicationButton";
-import ApplicationsTable from "../components/dashboard/ApplicationTable";
+import ApplicationsTable from "../components/dashboard/ApplicationsTable";
 import ApplicationModal from "../components/dashboard/ApplicationModal";
 import ApplicationForm from "../components/dashboard/ApplicationForm";
 import {
@@ -61,7 +61,7 @@ function Applications() {
                     <input
                         id="search"
                         type="text"
-                        className="search__bar"
+                        className="search__input"
                         placeholder="Search applications..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}

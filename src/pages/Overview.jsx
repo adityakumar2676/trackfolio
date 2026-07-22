@@ -1,5 +1,5 @@
 import StatCard from "../components/cards/StatCard";
-import ApplicationsTable from "../components/dashboard/ApplicationTable";
+import ApplicationsTable from "../components/dashboard/ApplicationsTable";
 import { getApplications } from "../services/applicationService";
 import {
     BriefcaseBusiness,
@@ -46,7 +46,7 @@ function Overview() {
 
     return (
         <section className="overview">
-            <div className="stat__card-wrapper">
+            <div className="overview__grid">
                 {stats.map((stat) => (
                     <StatCard key={stat.id} stat={stat} />
                 ))}

@@ -1,0 +1,168 @@
+:root {
+    /* ========================================
+   COLORS
+======================================== */
+
+    /* Brand */
+    --color-primary: #6366f1;
+    --color-primary-hover: #7c3aed;
+    --color-primary-light: #818cf8;
+    --color-primary-soft: rgba(99, 102, 241, 0.12);
+
+    /* Neutral */
+    --color-white: #ffffff;
+    --color-black: #020617;
+
+    /* Backgrounds */
+    --color-background: #0f172a;
+    --color-surface: #111827;
+    --color-surface-secondary: #1e293b;
+
+    /* Text */
+    --color-text-primary: #f8fafc;
+    --color-text-secondary: #cbd5e1;
+    --color-text-muted: #94a3b8;
+
+    /* Borders */
+    --color-border: #334155;
+    --color-border-light: #475569;
+
+    /* Status */
+    --color-success: #22c55e;
+    --color-success-bg: rgba(34, 197, 94, 0.15);
+
+    --color-warning: #f59e0b;
+    --color-warning-bg: rgba(245, 158, 11, 0.15);
+
+    --color-danger: #ef4444;
+    --color-danger-bg: rgba(239, 68, 68, 0.15);
+
+    --color-info: #3b82f6;
+    --color-info-bg: rgba(59, 130, 246, 0.15);
+
+    /* ========================================
+   TYPOGRAPHY
+======================================== */
+
+    --font-family-base:
+        -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
+
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --line-height-tight: 1.2;
+    --line-height-snug: 1.375;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.625;
+
+    --letter-spacing-tight: -0.02em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.04em;
+
+    /* ========================================
+   SPACING
+======================================== */
+
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-7: 28px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-16: 64px;
+
+    /* ========================================
+   BORDER RADIUS
+======================================== */
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
+    --radius-full: 9999px;
+
+    /* ========================================
+   SHADOWS
+======================================== */
+
+    --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+    --shadow-md: 0 2px 8px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 8px 24px rgba(15, 23, 42, 0.1);
+    --shadow-xl: 0 16px 40px rgba(15, 23, 42, 0.14);
+
+    /* ========================================
+   TRANSITIONS
+======================================== */
+
+    --transition-fast: 120ms;
+    --transition-normal: 200ms;
+    --transition-slow: 320ms;
+    --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* ========================================
+   Z INDEX
+======================================== */
+
+    --z-index-dropdown: 1000;
+    --z-index-sticky: 1100;
+    --z-index-sidebar: 1200;
+    --z-index-modal: 1300;
+    --z-index-tooltip: 1400;
+
+    /* ========================================
+   LAYOUT
+======================================== */
+
+    --layout-container-width: 1440px;
+    --layout-sidebar-width: 264px;
+    --layout-topbar-height: 64px;
+    --layout-content-max-width: 1200px;
+
+    /* ========================================
+   COMPONENT SIZES
+======================================== */
+
+    --button-height-sm: 32px;
+    --button-height-md: 40px;
+    --button-height-lg: 48px;
+
+    --input-height-sm: 32px;
+    --input-height-md: 40px;
+    --input-height-lg: 48px;
+
+    --avatar-size-sm: 24px;
+    --avatar-size-md: 36px;
+    --avatar-size-lg: 48px;
+
+    --icon-size-sm: 16px;
+    --icon-size-md: 20px;
+    --icon-size-lg: 24px;
+
+    --badge-height: 24px;
+
+    /* ========================================
+   OPACITY
+======================================== */
+
+    --opacity-disabled: 0.5;
+    --opacity-muted: 0.7;
+    --opacity-overlay: 0.6;
+}

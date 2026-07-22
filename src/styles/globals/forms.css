@@ -1,0 +1,181 @@
+/* ========================================
+   FORM BASE
+======================================== */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    width: 100%;
+}
+
+.form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+/* ========================================
+   LABELS
+======================================== */
+
+.form__label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+}
+
+/* ========================================
+   INPUTS
+======================================== */
+
+.form__input {
+    width: 100%;
+    height: var(--input-height-md);
+    padding-inline: var(--space-4);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition:
+        border-color var(--transition-fast) var(--transition-easing),
+        box-shadow var(--transition-fast) var(--transition-easing);
+}
+
+.form__input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.form__input:hover:not(:disabled):not(:focus) {
+    border-color: var(--color-text-muted);
+}
+
+.form__input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+.form__input:disabled {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+    background-color: var(--color-surface-secondary);
+}
+
+select.form__input {
+    cursor: pointer;
+}
+
+.form__textarea {
+    height: auto;
+    min-height: 96px;
+    padding-block: var(--space-3);
+    resize: vertical;
+}
+
+/* ========================================
+   PASSWORD FIELD
+======================================== */
+
+.form__password {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.form__password .form__input {
+    padding-right: var(--space-10);
+}
+
+.form__password-toggle {
+    position: absolute;
+    right: var(--space-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+    transition: color var(--transition-fast) var(--transition-easing);
+}
+
+.form__password-toggle:hover {
+    color: var(--color-text-primary);
+}
+
+.form__toggle-icon {
+    width: var(--icon-size-sm);
+    height: var(--icon-size-sm);
+}
+
+/* ========================================
+   ACTIONS & FOOTER
+======================================== */
+
+.form__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    margin-top: var(--space-2);
+}
+
+.form__footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.form__footer a {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    transition: color var(--transition-fast) var(--transition-easing);
+}
+
+.form__footer a:hover {
+    color: var(--color-primary-hover);
+}
+
+/* ========================================
+   ERROR STATE
+======================================== */
+
+.form__error {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-danger);
+    background-color: var(--color-danger-bg);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 640px) {
+    .form__row {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+    }
+
+    .form__actions {
+        flex-direction: column-reverse;
+    }
+
+    .form__actions .btn {
+        width: 100%;
+    }
+}

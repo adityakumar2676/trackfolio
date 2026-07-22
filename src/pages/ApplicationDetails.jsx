@@ -55,95 +55,118 @@ function ApplicationDetails() {
     }
 
     return (
-        <div className="applications__details">
-            <div className="applications__details-container">
-                <div className="applications__details-card">
-                    <div className="applications__details-company">
-                        <div className="applications__details-logo">
+        <div className="application-details">
+            <div className="application-details__container">
+                <div className="application-details__card">
+                    <div className="application-details__company">
+                        <div className="application-details__logo">
                             {application.company.charAt(0).toUpperCase()}
                         </div>
-                        <div className="applications__details-meta">
-                            <h2 className="applications__details-title">
+
+                        <div className="application-details__meta">
+                            <h2 className="application-details__title">
                                 {application.company}
                             </h2>
-                            <p className="applications__details-subtitle">
+
+                            <p className="application-details__subtitle">
                                 {application.position}
                             </p>
                         </div>
                     </div>
-                    <span className="applications__details-badge">
+
+                    <span className="application-details__badge">
                         {application.status}
                     </span>
                 </div>
 
-                <div className="applications__details-card">
-                    <h3 className="applications__details-section-title">
+                <div className="application-details__card">
+                    <h3 className="application-details__section-title">
                         Details
                     </h3>
 
-                    <div className="applications__details-grid">
-                        <div className="applications__details-item">
-                            <div className="applications__details-icon-wrapper">
-                                <MapPin className="applications__details-icon" />
+                    <div className="application-details__grid">
+                        <div className="application-details__item">
+                            <div className="application-details__icon-wrapper">
+                                <MapPin
+                                    className="application-details__icon"
+                                    aria-hidden="true"
+                                />
                             </div>
-                            <div className="applications__details-item-content">
-                                <span className="applications__details-label">
+
+                            <div className="application-details__content">
+                                <span className="application-details__label">
                                     LOCATION
                                 </span>
-                                <span className="applications__details-value">
+
+                                <span className="application-details__value">
                                     {application.location}
                                 </span>
                             </div>
                         </div>
 
-                        <div className="applications__details-item">
-                            <div className="applications__details-icon-wrapper">
-                                <DollarSign className="applications__details-icon" />
+                        <div className="application-details__item">
+                            <div className="application-details__icon-wrapper">
+                                <DollarSign
+                                    className="application-details__icon"
+                                    aria-hidden="true"
+                                />
                             </div>
-                            <div className="applications__details-item-content">
-                                <span className="applications__details-label">
+
+                            <div className="application-details__content">
+                                <span className="application-details__label">
                                     SALARY
                                 </span>
-                                <span className="applications__details-value">
+
+                                <span className="application-details__value">
                                     {application.salary || "Not specified"}
                                 </span>
                             </div>
                         </div>
 
-                        <div className="applications__details-item">
-                            <div className="applications__details-icon-wrapper">
-                                <Link className="applications__details-icon" />
+                        <div className="application-details__item">
+                            <div className="application-details__icon-wrapper">
+                                <Link
+                                    className="application-details__icon"
+                                    aria-hidden="true"
+                                />
                             </div>
-                            <div className="applications__details-item-content">
-                                <span className="applications__details-label">
+
+                            <div className="application-details__content">
+                                <span className="application-details__label">
                                     JOB LINK
                                 </span>
+
                                 {application.jobUrl ? (
                                     <a
                                         href={application.jobUrl}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="applications__details-link"
+                                        className="application-details__link"
                                     >
                                         {application.jobUrl}
                                     </a>
                                 ) : (
-                                    <span className="applications__details-value">
+                                    <span className="application-details__value">
                                         Not specified
                                     </span>
                                 )}
                             </div>
                         </div>
 
-                        <div className="applications__details-item">
-                            <div className="applications__details-icon-wrapper">
-                                <Calendar className="applications__details-icon" />
+                        <div className="application-details__item">
+                            <div className="application-details__icon-wrapper">
+                                <Calendar
+                                    className="application-details__icon"
+                                    aria-hidden="true"
+                                />
                             </div>
-                            <div className="applications__details-item-content">
-                                <span className="applications__details-label">
+
+                            <div className="application-details__content">
+                                <span className="application-details__label">
                                     DATE APPLIED
                                 </span>
-                                <span className="applications__details-value">
+
+                                <span className="application-details__value">
                                     {application.appliedDate}
                                 </span>
                             </div>
@@ -151,36 +174,35 @@ function ApplicationDetails() {
                     </div>
                 </div>
 
-                <div className="applications__details-card">
-                    <h3 className="applications__details-section-title">
+                <div className="application-details__card">
+                    <h3 className="application-details__section-title">
                         Notes
                     </h3>
+
                     <textarea
                         readOnly
                         rows={5}
-                        className="applications__details-notes-input"
+                        className="application-details__notes"
                         defaultValue={application.notes}
                     />
                 </div>
 
-                <div className="applications__details-actions">
+                <div className="application-details__actions">
                     <button
                         type="button"
-                        className="applications__details-btn applications__details-btn--delete"
+                        className="application-details__button application-details__button--delete"
                         onClick={handleDelete}
                     >
-                        <Trash2 />
+                        <Trash2 aria-hidden="true" />
                         <span>Delete</span>
                     </button>
 
                     <button
                         type="button"
-                        className="applications__details-btn applications__details-btn--edit"
-                        onClick={() => {
-                            setIsEditing(true);
-                        }}
+                        className="application-details__button application-details__button--edit"
+                        onClick={() => setIsEditing(true)}
                     >
-                        <Pencil />
+                        <Pencil aria-hidden="true" />
                         <span>Edit</span>
                     </button>
                 </div>

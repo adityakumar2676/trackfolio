@@ -1,7 +1,7 @@
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { login } from "../auth/authService";
+import { login } from "../services/authService";
 import Logo from "../components/common/Logo";
 
 function Login() {
@@ -66,7 +66,7 @@ function Login() {
                             Password
                         </label>
 
-                        <div className="login__password-wrapper">
+                        <div className="form__password">
                             <input
                                 id="password"
                                 className="form__input"
@@ -84,7 +84,7 @@ function Login() {
 
                             <button
                                 type="button"
-                                className="login__password-toggle"
+                                className="form__password-toggle"
                                 onClick={() => setShowPassword((prev) => !prev)}
                                 aria-label={
                                     showPassword
@@ -95,13 +95,13 @@ function Login() {
                                 {showPassword ? (
                                     <EyeOff
                                         size={18}
-                                        className="password__toggle-icon"
+                                        className="form__toggle-icon"
                                         aria-hidden="true"
                                     />
                                 ) : (
                                     <Eye
                                         size={18}
-                                        className="password__toggle-icon"
+                                        className="form__toggle-icon"
                                         aria-hidden="true"
                                     />
                                 )}
@@ -115,7 +115,7 @@ function Login() {
                         </p>
                     )}
 
-                    <button type="submit" className="btn login__submit-btn">
+                    <button type="submit" className="btn btn--primary">
                         Log In
                     </button>
                 </form>

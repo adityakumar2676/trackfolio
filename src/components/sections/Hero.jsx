@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 function Hero() {
     return (
         <section className="hero" id="hero">
-            <div className="hero__container">
+            <div className="container hero__container">
                 <div className="hero__content">
                     <span className="hero__badge">
-                        <span className="hero__badge-dot"></span>
+                        <span className="hero__badge-indicator"></span>
                         JOB SEARCH, ORGANIZED
                     </span>
 

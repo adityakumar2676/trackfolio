@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { getCurrentUser } from "../../auth/authService";
+import { getCurrentUser } from "../../services/authService";
 
 function ProtectedRoute({ children }) {
     const currentUser = getCurrentUser();

@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../components/common/Logo";
-import { register } from "../auth/authService";
-import { use, useState } from "react";
+import { register } from "../services/authService";
+import { useState } from "react";
 
 function Register() {
     const [name, setName] = useState("");
@@ -92,7 +92,7 @@ function Register() {
                         value={password}
                         onChange={(e) => {
                             setPassword(e.target.value);
-                            setError;
+                            setError("");
                         }}
                         required
                     />

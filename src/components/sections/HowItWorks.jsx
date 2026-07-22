@@ -1,30 +1,34 @@
-import React from "react";
-import stepsData from "../../data/stepsData";
+import stepsData from "../../constants/stepsData";
 import StepCard from "../cards/StepCard";
 import StepConnector from "../cards/StepConnector";
+import { Fragment } from "react";
 
 function HowItWorks() {
     return (
-        <section className="how-it-works" id="how-it-works">
-            <header className="section__header">
-                <span className="section__label">HOW IT WORKS</span>
-                <h3 className="section__title">
-                    Get started in three simple steps
-                </h3>
-                <p className="section__description">
-                    From sign-up to offer, TrackFolio keeps your search on
-                    track.
-                </p>
-            </header>
+        <section className="section how-it-works" id="how-it-works">
+            <div className="container how-it-works__container">
+                <header className="section__header">
+                    <span className="section__label">HOW IT WORKS</span>
+                    <h3 className="section__title">
+                        Get started in three simple steps
+                    </h3>
+                    <p className="section__description">
+                        From sign-up to offer, TrackFolio keeps your search on
+                        track.
+                    </p>
+                </header>
 
-            <div className="steps__grid">
-                {stepsData.map((step, index) => (
-                    <React.Fragment key={step.id}>
-                        <StepCard step={step} />
+                <div className="how-it-works__grid">
+                    {stepsData.map((step, index) => (
+                        <Fragment key={step.id}>
+                            <StepCard step={step} />
 
-                        {index !== stepsData.length - 1 && <StepConnector />}
-                    </React.Fragment>
-                ))}
+                            {index !== stepsData.length - 1 && (
+                                <StepConnector />
+                            )}
+                        </Fragment>
+                    ))}
+                </div>
             </div>
         </section>
     );

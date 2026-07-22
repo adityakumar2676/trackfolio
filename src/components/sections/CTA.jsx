@@ -10,7 +10,7 @@ function CTA() {
                         Join job seekers who stay organized and never miss a
                         follow up.
                     </p>
-                    <div className="cta__action">
+                    <div className="cta__actions">
                         <button className="btn btn--primary">
                             Create Free Account
                         </button>

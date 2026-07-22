@@ -1,0 +1,146 @@
+/* ========================================
+   CARD BASE
+======================================== */
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition:
+        transform var(--transition-normal) var(--transition-easing),
+        box-shadow var(--transition-normal) var(--transition-easing),
+        border-color var(--transition-normal) var(--transition-easing);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-border-light);
+}
+
+/* ========================================
+   CARD MODIFIERS
+======================================== */
+
+.card--feature {
+    height: 100%;
+}
+
+.card--stat {
+    gap: var(--space-3);
+}
+
+.card--step {
+    position: relative;
+    text-align: left;
+}
+
+/* ========================================
+   CARD ELEMENTS
+======================================== */
+
+.card__icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background-color: var(--color-primary-soft);
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+}
+
+.card__icon {
+    width: var(--icon-size-lg);
+    height: var(--icon-size-lg);
+    color: var(--color-primary);
+}
+
+.card__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    width: 100%;
+}
+
+.card__title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-snug);
+    color: var(--color-text-primary);
+}
+
+.card__description {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+}
+
+.card__value {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--color-text-primary);
+}
+
+.card__change {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-muted);
+}
+
+/* ========================================
+   STEP CONNECTOR
+======================================== */
+
+.steps__connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+}
+
+.steps__line {
+    flex: 1;
+    height: 1px;
+    background-color: var(--color-border);
+}
+
+.steps__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    color: var(--color-text-muted);
+    background-color: var(--color-surface);
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 640px) {
+    .card {
+        padding: var(--space-5);
+    }
+
+    .card__value {
+        font-size: var(--font-size-2xl);
+    }
+
+    .steps__connector {
+        display: none;
+    }
+}

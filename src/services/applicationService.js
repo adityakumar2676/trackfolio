@@ -1,4 +1,4 @@
-import { getCurrentUser, getUsers, saveUsers } from "../auth/authService";
+import { getCurrentUser, getUsers, saveUsers } from "./authService";
 
 const getApplications = () => {
     const currentUser = getCurrentUser();

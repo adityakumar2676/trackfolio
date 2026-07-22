@@ -2,9 +2,9 @@ import { BookmarkCheck } from "lucide-react";
 
 function Logo() {
     return (
-        <div className="logo__wrapper">
+        <div className="logo">
             <BookmarkCheck className="logo__icon" aria-hidden="true" />
-            <span className="logo__title">TrackFolio</span>
+            <span className="logo__text">TrackFolio</span>
         </div>
     );
 }

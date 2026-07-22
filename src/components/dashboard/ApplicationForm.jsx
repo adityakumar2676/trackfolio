@@ -29,13 +29,13 @@ function ApplicationForm({ initialData = initialFormData, onSubmit, onClose }) {
     }
 
     return (
-        <article className="application">
-            <header className="application__header">
-                <h2 className="application__title">
+        <article className="form-card">
+            <header className="form-card__header">
+                <h2 className="form-card__title">
                     {initialData.id ? "Edit Application" : "Add Application"}
                 </h2>
 
-                <p className="application__description">
+                <p className="form-card__description">
                     {initialData.id
                         ? "Update your job application details."
                         : "Enter the details of your job application."}

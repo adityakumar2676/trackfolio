@@ -11,7 +11,7 @@ function ApplicationModal({ isOpen, onClose, children }) {
             >
                 <button
                     type="button"
-                    className="modal__close-btn"
+                    className="modal__close"
                     onClick={onClose}
                     aria-label="Close modal"
                 >

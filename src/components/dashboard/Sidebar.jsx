@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import Logo from "../common/Logo";
-import sidebarData from "../../data/sidebarData";
+import sidebarData from "../../constants/sidebarData";
 
 function Sidebar({ isOpen }) {
     const navigate = useNavigate();
@@ -24,14 +24,16 @@ function Sidebar({ isOpen }) {
                         key={id}
                         to={path}
                         className={({ isActive }) =>
-                            `sidebar__content${isActive ? " active" : ""}`
+                            `sidebar__link${
+                                isActive ? " sidebar__link--active" : ""
+                            }`
                         }
                     >
-                        <span className="content__icon-wrapper">
+                        <span className="sidebar__icon">
                             <Icon size={20} aria-hidden="true" />
                         </span>
 
-                        <span className="content__title">{title}</span>
+                        <span className="sidebar__label">{title}</span>
                     </NavLink>
                 ))}
 
