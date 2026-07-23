@@ -7,6 +7,7 @@ import Register from "./pages/Register";
 import Overview from "./pages/Overview";
 import Applications from "./pages/Applications";
 import ApplicationDetails from "./pages/ApplicationDetails";
+import Analytics from "./pages/Analytics";
 
 function App() {
     return (
@@ -31,6 +32,8 @@ function App() {
                     path="applications/:id"
                     element={<ApplicationDetails />}
                 />
+
+                <Route path="analytics" element={<Analytics />} />
             </Route>
         </Routes>
     );

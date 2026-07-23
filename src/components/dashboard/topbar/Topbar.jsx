@@ -1,5 +1,6 @@
 import { ChevronDown, Menu, Search } from "lucide-react";
 import { useLocation } from "react-router-dom";
+import ProfileMenu from "./profile/ProfileMenu";
 
 function Topbar({ toggleSidebar }) {
     const { pathname } = useLocation();
@@ -36,6 +37,7 @@ function Topbar({ toggleSidebar }) {
                         placeholder="Search"
                         aria-label="Search"
                     />
+                    <ProfileMenu />
                 </div>
 
                 <button type="button" className="profile-menu">

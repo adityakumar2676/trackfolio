@@ -25,7 +25,7 @@ const sidebarData = [
     {
         id: 3,
         title: "Analytics",
-        path: "/analytics",
+        path: "/dashboard/analytics",
         icon: BarChart3,
     },
     {

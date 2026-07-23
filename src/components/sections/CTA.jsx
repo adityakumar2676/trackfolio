@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function CTA() {
     return (
         <section className="section cta" id="cta">
@@ -11,9 +13,9 @@ function CTA() {
                         follow up.
                     </p>
                     <div className="cta__actions">
-                        <button className="btn btn--primary">
+                        <Link to="/register" className="btn btn--primary">
                             Create Free Account
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>
